@@ -1,6 +1,7 @@
 from Reading_File import ReadingFile
 from mysort_bubble import bubble_sort
-from tqdm import tqdm
+import timeit
+
 myfile = ReadingFile(r"C:\Users\andre\Desktop\Valid_data.txt")
 norm_text = myfile.get_data_without_json()
 
@@ -24,7 +25,7 @@ while(check):
            name_field = "snils"
            check = False
         elif option == 2:
-           name_field = 'passport'
+           name_field = 'passport_number'
            check = False
         elif option == 3:
             name_field = "age"
@@ -35,21 +36,10 @@ while(check):
         else:
             print("Что то пошло не по плану")
 
+start_time = timeit.default_timer()
 bubble_sort(norm_text, name_field)
-for i in range(5):
+t = timeit.default_timer() - start_time
+print("Вы потратили " + str(t) + " секунд жизни впустую")
+for i in range(10):
     print(norm_text[i])
-"""
-test_list = []
-a = 0
-for i in norm_text:
-    if a < 10:
-        print(i)
-        test_list.append(i)
-    a += 1
-print("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
-bubble_sort(test_list, "snils")
-for i in test_list:
-    print(i["snils"])
-    # print(i["age"])
-    # print(i["weight"])
-"""
+
