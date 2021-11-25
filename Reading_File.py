@@ -9,6 +9,6 @@ class ReadingFile:
             text = myfile.read()
         norm_text = ast.literal_eval(text)
         return norm_text
-    def get_data(self) -> list:
+    def get_data_json(self) -> list:
         data = json.load(open(self.path, encoding='windows-1251'))
         return data

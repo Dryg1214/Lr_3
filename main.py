@@ -1,8 +1,9 @@
 from Reading_File import ReadingFile
 from mysort_bubble import bubble_sort
+from Writing import write_file_json
 import timeit
 
-myfile = ReadingFile(r"C:\Users\andre\Desktop\Valid_data.txt")
+myfile = ReadingFile("Valid_data.txt")
 norm_text = myfile.get_data_without_json()
 
 print("Выберите по какому полю отсортировать записи")
@@ -40,6 +41,8 @@ start_time = timeit.default_timer()
 bubble_sort(norm_text, name_field)
 t = timeit.default_timer() - start_time
 print("Вы потратили " + str(t) + " секунд жизни впустую")
-for i in range(10):
-    print(norm_text[i])
 
+write_file_json(norm_text, "Нашjson1")
+myfile = ReadingFile(r"C:\Users\andre\PycharmProjects\Lr_3\Нашjson1.json")
+norm_text = myfile.get_data_without_json()
+print(norm_text)
