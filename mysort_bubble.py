@@ -1,4 +1,4 @@
-lst = [188, 3, 7, 10, 9, 16, 17, 1]
+
 # вес паспорт снилс возраст
 def bubble_sort(lst, name_field):
     n = len(lst)
